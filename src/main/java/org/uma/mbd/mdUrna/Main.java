@@ -10,7 +10,7 @@ public class Main {
         int nNegras = Integer.parseInt(args[1]);
         Urna urna = new Urna(nBlancas, nNegras);
         if (urna.totalBolas() == 0) {
-            System.out.println("No hay bolas para sacar de la urna.");
+            throw new RuntimeException("No hay bolas para sacar de la urna.");
         }
         while (urna.totalBolas() > 0) {
 
