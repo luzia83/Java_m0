@@ -1,7 +1,7 @@
 package org.uma.mbd.mdJarras.jarras;
 
 public class Jarra {
-    public int contenido, capacidad;
+    int contenido, capacidad;
 
     public Jarra(int cap){
         capacidad = cap;
