@@ -33,11 +33,11 @@ public class Cromosoma {
 	 *             si longitud no positiva.
 	 */
 	public Cromosoma(int longitud, boolean aleatorio) {
-		int[] datos = new int[longitud];
+		datos = new int[longitud];
 		if (aleatorio) {
-			for (int dato : datos) {
+			for (int i = 0; i < datos.length; i++) {
 				Random r = new Random();
-				dato = r.nextInt(2);
+				datos[i] = r.nextInt(2);
 			}
 		}
 		else{

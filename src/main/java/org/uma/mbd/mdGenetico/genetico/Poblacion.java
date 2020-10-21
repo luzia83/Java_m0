@@ -18,6 +18,12 @@ public class Poblacion {
 	 *             indicados no son válidos.
 	 */
 	public Poblacion(int tamaño, int longitud, Problema problema) {
+		if (tamaño <= 0) {
+			throw new RuntimeException("El tamaño de la población no es válido");
+		} if (longitud <= 0) {
+			throw new RuntimeException("La longitud de los cromosomas no es válida");
+		}
+		individuos = new Individuo[tamaño];
 		for (int i = 0 ; i < tamaño; ++i) {
 			Cromosoma crom = new Cromosoma(longitud, true);
 			Individuo ind = new Individuo(crom, problema);

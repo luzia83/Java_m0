@@ -1,5 +1,7 @@
 package org.uma.mbd.mdGenetico.genetico;
 
+import java.util.Random;
+
 public class AGUnPunto extends AlgoritmoGenetico {
 
 	/**
@@ -26,8 +28,18 @@ public class AGUnPunto extends AlgoritmoGenetico {
 	 */
 	@Override
 	protected Cromosoma recombinar(Cromosoma cromosoma1, Cromosoma cromosoma2) {
-		// COMPLETAR
-		return null;
+		Random r = new Random();
+		int z = r.nextInt(cromosoma1.longitud());
+		Cromosoma cromosoma = new Cromosoma(cromosoma1.longitud(), false);
+		for (int i = 0; i < cromosoma.longitud(); ++i) {
+			if (i < z) {
+				cromosoma.gen(i, cromosoma1.gen(i));
+			}
+			else {
+				cromosoma.gen(i, cromosoma2.gen(i));
+			}
+		}
+		return cromosoma;
 	}
 
 }
