@@ -9,7 +9,7 @@ public class OneMax implements Problema {
 	public double evalua(Cromosoma cromosoma) {
 		int resultado = 0;
 		for (int i = 0; i < cromosoma.longitud(); i++) {
-			resultado =+ cromosoma.gen(i);
+			resultado += cromosoma.gen(i);
 		}
 		return resultado;
 	}
