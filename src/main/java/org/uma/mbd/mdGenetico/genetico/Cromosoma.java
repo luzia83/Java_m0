@@ -13,7 +13,7 @@ public class Cromosoma {
 	/**
 	 * Variable de clase de tipo Random.
 	 */
-	protected static Random gna = new Random();
+	protected static Random gna = new Random(20000);
 
 	/**
 	 * Valor por defecto 0 para los genes.

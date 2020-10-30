@@ -31,7 +31,7 @@ public class Cuenta {
         saldo += cant;
     }
 
-    public void debito(int cant) {
+    public void debito(double cant) {
         saldo -= cant;
     }
 
