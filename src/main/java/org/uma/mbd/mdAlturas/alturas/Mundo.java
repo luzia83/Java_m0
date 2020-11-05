@@ -1,5 +1,6 @@
 package org.uma.mbd.mdAlturas.alturas;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -7,7 +8,7 @@ public class Mundo {
     private List<Pais> paises;
 
     public Mundo() {
-        paises = new ArrayList<>();
+        paises = new ArrayList<Pais>();
     }
 
     public List<Pais> getPaises() {
@@ -15,7 +16,7 @@ public class Mundo {
     }
 
     public void leePaises(String file) throws FileNotFoundException {
-        try (Scanner sc = new Scanner(file)) {
+        try (Scanner sc = new Scanner(new File(file))) {
             leePaises(sc);
         }
     }
@@ -25,6 +26,7 @@ public class Mundo {
             String datosPais = sc.nextLine();
             try (Scanner sc1 = new Scanner(datosPais)) {
                 sc1.useDelimiter(",");
+                sc1.useLocale(Locale.ENGLISH);
                 String p = sc1.next();
                 String c = sc1.next();
                 double a = sc1.nextDouble();

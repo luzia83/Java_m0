@@ -21,9 +21,16 @@ public class Pais {
     public double getAltura() {
         return altura;
     }
+    @Override
+    public boolean equals(Object o) {
+        boolean res = o instanceof Pais;
+        Pais p = res ? (Pais)o : null;
+        return res && nombre.equalsIgnoreCase(p.getNombre());
+    }
 
-    public boolean equals(Pais p) {
-        return nombre.equalsIgnoreCase(p.nombre);
+    @Override
+    public int hashCode() {
+        return ((int) altura*100);
     }
 
     @Override

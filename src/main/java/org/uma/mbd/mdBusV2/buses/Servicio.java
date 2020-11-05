@@ -1,6 +1,4 @@
-package org.uma.mbd.mdBusV1L.buses;
-
-import org.uma.mbd.mdBusV2.buses.OrdBus;
+package org.uma.mbd.mdBusV2.buses;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,18 +7,18 @@ import java.util.*;
 
 public class Servicio {
     private String ciudad;
-    private List<Bus> buses;
+    private TreeSet<Bus> buses;
 
     public Servicio(String c) {
         ciudad = c;
-        buses = new ArrayList<>();
+        buses = new TreeSet<>();
     }
 
     public String getCiudad() {
         return ciudad;
     }
 
-    public List<Bus> getBuses() {
+    public TreeSet<Bus> getBuses() {
         return buses;
     }
 
@@ -50,8 +48,8 @@ public class Servicio {
         }
     }
 
-    public List<Bus> filtra(Criterio criterio) {
-        List<Bus> listaBus = new ArrayList<>();
+    public Set<Bus> filtra(Criterio criterio, Comparator<Bus> cb) {
+        Set<Bus> listaBus = new TreeSet<>();
         for (Bus bus : buses) {
             if (criterio.esSeleccionable(bus)) {
                 listaBus.add(bus);
@@ -60,13 +58,13 @@ public class Servicio {
         return listaBus;
     }
 
-    public void guarda(String file, Criterio criterio) throws FileNotFoundException {
+    public void guarda(String file, Comparator<Bus> cb, Criterio criterio) throws FileNotFoundException {
         try (PrintWriter pw = new PrintWriter(file)) {
-            guarda(pw, criterio);
+            guarda(pw, cb, criterio);
         }
     }
 
-    public void guarda(PrintWriter pw, Criterio criterio) {
+    public void guarda(PrintWriter pw, Comparator<Bus> cb, Criterio criterio) {
         pw.println(criterio);
         for (Bus bus : buses) {
             if (criterio.esSeleccionable(bus)) {
